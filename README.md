@@ -14,25 +14,25 @@ Your project must show the following menu:
 7. Search for a movie
 8. Exit
 Considerations
-• To add a genre, your program must read the genre title (ie. Action, Comedy, Thriller, etc). Notify
+ • To add a genre, your program must read the genre title (ie. Action, Comedy, Thriller, etc). Notify
 the user that it was successfully added.
-• To add a movie, your program must read the following:
+ • To add a movie, your program must read the following:
  o Title: The title of the movie
-o Genre: for the movie’s genre the program must show a list with all genres in the database
+ o Genre: for the movie’s genre the program must show a list with all genres in the database
 and the user shall select a genre from the list.
-o Synopsis: A short summary of the movie
-o Director: Director of the movie
-o Cast & crew list (- 20 points if it is not implemented using BST)
-o Release year: Year of publication
-• To modify a movie, your program must read the title, show all information about the movie, ask if
+ o Synopsis: A short summary of the movie
+ o Director: Director of the movie
+ o Cast & crew list (- 20 points if it is not implemented using BST)
+ o Release year: Year of publication
+ • To modify a movie, your program must read the title, show all information about the movie, ask if
 the user really want to modify it, and for an affirmative answer, must read all the new movie
 information. Notify the user that it was successfully modified.
-• When listing all genres, your program must show them in alphabetical order.
-• When delete a movie is chosen, the program should ask the user to enter the name of the movie
+ • When listing all genres, your program must show them in alphabetical order.
+ • When delete a movie is chosen, the program should ask the user to enter the name of the movie
 to be deleted. Next, you must delete the movie and notify the user that it was successfully deleted.
-• When listing all movies for a genre, your program must read the genre and show a list with all
+ • When listing all movies for a genre, your program must read the genre and show a list with all
 movies for the selected genre with the movie title, release year and director’s name.
-• For searching a movie, your program must read the movie title and show all information about
+ • For searching a movie, your program must read the movie title and show all information about
 the movie.
 Project’s architecture
 - The list of genres must be implemented using a Doubly Linked List based on genre’s title.
@@ -47,8 +47,8 @@ grade of F in the course for the student(s) breaking these rules.
 Your source code must be submitted via Blackboard on or before May 4, 2026 11:59PM. You must
 submit your source code.
 Rubric
-70%: Project implementation
-• 20%: Data structures implementation
-• 40%: Functionality implementation (5% each menu function)
+ 70%: Project implementation
+ • 20%: Data structures implementation
+ • 40%: Functionality implementation (5% each menu function)
 10%: Report
 30%: Oral exam (mandatory, May 5, 2025 1:00PM)
