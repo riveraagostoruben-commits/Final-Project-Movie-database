@@ -123,15 +123,17 @@ class MovieSLL
         ptr->setNext(m1);
 
     }
-    void modifyMovie(string ti1, string newd1, string newdt1, string newsy1){
+    string modifyMovie(string ti1, string newd1, string newdt1, string newsy1){
         
         Movie *ptr = findMovieByTitle(ti1);
         if(ptr!=nullptr){
+        
         ptr->setDirector(newd1);
         ptr->setPublish_Date(newdt1);
         ptr->setSynopsis(newsy1);
+        return "Movie Successfully Modified";
         }
-
+        return "Movie Not Found";
     }
 
 
