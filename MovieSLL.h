@@ -151,31 +151,32 @@ class MovieSLL
 
         }
     }
-    void deleteMovie(string ti1){
+    string deleteMovie(string ti1){
         if( head == nullptr)
-        return;
+        return "Movie List Empty";
         if(head!=nullptr){
             Movie * ptr = head;
             if(ptr->getTitle() == ti1){
                 head = head->getNext();
                 delete ptr;
-                return;
+                return " Successfully Deleted";
             }
             
             while(ptr->getNext() != nullptr && ptr->getNext()->getTitle() != ti1){
                 ptr = ptr->getNext();
             }
             if(ptr->getNext() == nullptr)
-            return;
+            return "Movie Not Found";
 
             else{
                 Movie *ptr2 = ptr->getNext();
                 if (ptr2 == tail) {
                 tail = ptr;
                 }
-                
+
                 ptr->setNext(ptr2->getNext());
                 delete ptr2;
+                return "Successfully Deleted";
             }
             
             
