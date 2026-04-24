@@ -92,7 +92,48 @@ class MovieSLL
         delete ptr;
         }
     }
-    // void modifyMovie(newt1, string newd1, string newdt1, string newsy1){]
+    void sortInsert(Movie *m1){
+        if(m1 == nullptr)
+        return; //safety check
+
+        if(head == nullptr || m1->getTitle() < head->getTitle()){
+            if(head == nullptr){
+                head = tail = m1;
+            }
+            else{
+                m1->setNext(head);
+                head = m1;
+            }
+            return;
+        }
+        
+
+        Movie * ptr = head;
+        while( ptr->getNext() != nullptr && m1->getTitle() > ptr->getNext()->getTitle() ){
+            ptr = ptr->getNext();
+
+
+        }
+        if(ptr->getNext() == nullptr){
+            ptr->setNext(m1);
+            tail = m1;
+            return;
+        }
+        m1->setNext(ptr->getNext());
+        ptr->setNext(m1);
+
+    }
+    void modifyMovie(string ti1, string newd1, string newdt1, string newsy1){
+        
+        Movie *ptr = findMovieByTitle(ti1);
+        if(ptr!=nullptr){
+        ptr->setDirector(newd1);
+        ptr->setPublish_Date(newdt1);
+        ptr->setSynopsis(newsy1);
+        }
+
+    }
+
 
     Movie *findMovieByTitle( string ti1){
         if(head!= nullptr){
