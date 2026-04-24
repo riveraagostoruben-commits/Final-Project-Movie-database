@@ -11,10 +11,10 @@ private:
     string Publish_Date;
     string Synopsis;
     Movie* next;
-    Movie* prev;
+  
 
 public:
-Movie(string t1, string d1, string dt1, string sy1,Movie *prv = nullptr, Movie *nxt = nullptr): Title(t1),Director(d1),Publish_Date(dt1),Synopsis(sy1), prev(prv),next(nxt){}
+Movie(string t1, string d1, string dt1, string sy1, Movie *nxt = nullptr): Title(t1),Director(d1),Publish_Date(dt1),Synopsis(sy1),next(nxt){}
 void setTitle(string t1){
         Title = t1;
     }
@@ -54,13 +54,6 @@ Movie *getNext(){
     return next;
 }
 
-void setPrev(Movie *prv){
-    prev = prv;
-}
-
-Movie *getPrev(){
-    return prev;
-}
 
 
 
