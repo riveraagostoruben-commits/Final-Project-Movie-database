@@ -54,16 +54,35 @@ class MovieSLL
 
     }
 
-    void addtoTail(Movie *m1){
+    void addtoTail(string t1, string d1, string dt1, string sy1){
+        Movie *ptr = new Movie(t1, d1, dt1, sy1, nullptr);
+
+        if(tail != nullptr){
+            tail->setNext(ptr);
+            tail = tail->getNext();
+        }
+        else
+        head = tail = ptr;
 
     }
 
     void deletefromTail(){
         if(head!= nullptr){
             Movie * ptr = head;
+            if(head != tail){
             while(ptr->getNext() != tail){
             ptr = ptr->getNext();
             }
+            
+            tail = ptr;
+            ptr = tail->getNext();
+            tail->setNext(nullptr);
+            }
+        
+        else{
+            head = tail = nullptr;
+            }
+        delete ptr;
         }
     }
 
