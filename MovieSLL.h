@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Movie.h"
 
 using namespace std;
@@ -9,11 +10,12 @@ class MovieSLL
     private:
     Movie * head;
     Movie * tail;
+    string genre;
 
 
 
     public:
-    MovieSLL(Movie *head1 = nullptr, Movie *tail1 = nullptr): head(head1),tail(tail1){}
+    MovieSLL(string genre = "N/A", Movie *head1 = nullptr, Movie *tail1 = nullptr): head(head1),tail(tail1){}
     ~MovieSLL(){
         
         while(head != nullptr){
@@ -25,7 +27,12 @@ class MovieSLL
     }
 
 
-    
+    void setGenre(string gnr){
+        genre = gnr;
+    }
+    string getGenre(){
+        return genre;
+    }
 
     void addtoHead(string t1, string d1, string dt1, string sy1){
 
@@ -68,7 +75,7 @@ class MovieSLL
 
     void deletefromTail(){
         if(head!= nullptr){
-            Movie * ptr = head;
+            Movie *ptr = head;
             if(head != tail){
             while(ptr->getNext() != tail){
             ptr = ptr->getNext();
@@ -83,6 +90,22 @@ class MovieSLL
             head = tail = nullptr;
             }
         delete ptr;
+        }
+    }
+    // void modifyMovie(newt1, string newd1, string newdt1, string newsy1){]
+
+    Movie *findMovieByTitle( string ti1){
+        if(head!= nullptr){
+            Movie *ptr = head;
+            while(ptr != nullptr){
+                if(ptr->getTitle() == ti1){
+                    return ptr;
+                }
+                ptr = ptr->getNext();
+            }
+            return nullptr;
+
+
         }
     }
 
