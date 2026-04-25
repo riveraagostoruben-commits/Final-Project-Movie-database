@@ -25,6 +25,12 @@ class MovieSLL
 
         }
     }
+    Movie *getHead(){
+        return head;
+    }
+    void setHead(Movie* m1){
+        head = m1;
+    }
 
 
     void setGenre(string gnr){
