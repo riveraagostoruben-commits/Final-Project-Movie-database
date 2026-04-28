@@ -32,7 +32,7 @@ string getDirector(){
     }
 
 void setPublish_Date(string dt1){
-        Publish_Date = dt1;
+        Publish_Date = dt1; 
     }
 
 string getPublish_Date(){

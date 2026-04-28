@@ -19,6 +19,8 @@ class GenreNode
 
 
     public:
+    
+
     void setGenre(string g1){
         genre = g1;
     }
@@ -40,6 +42,15 @@ class GenreNode
 
     GenreNode *getPrev(){
         return prev;
+    }
+
+    void setMovList(MovieSLL * movl1){
+        MovList = movl1;
+
+    }
+
+    MovieSLL *getMovList(){
+        return MovList;
     }
 
 

@@ -133,7 +133,6 @@ class MovieSLL
         
         Movie *ptr = findMovieByTitle(ti1);
         if(ptr!=nullptr){
-        
         ptr->setDirector(newd1);
         ptr->setPublish_Date(newdt1);
         ptr->setSynopsis(newsy1);
