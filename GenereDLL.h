@@ -143,6 +143,13 @@ GenreNode* findGenre(string gName) {
     cout<< "Genre Not Found" << endl;
     return nullptr;
 }
+bool isEmpty() {
+    if (head == nullptr) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 
 

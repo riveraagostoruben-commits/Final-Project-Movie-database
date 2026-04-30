@@ -67,13 +67,14 @@ int main(){
              << PublishDate
              <<"\nSynopsis of Movie: "
              << Synopsis<< endl << endl;
-
-
-            
-
-
-        }
+            }
         break;
+    }
+    case 3:{}
+    case 4:{
+        cout << "Listing all Genres";
+        if()
+        MovieDataBase->printList()
     }
 
         
