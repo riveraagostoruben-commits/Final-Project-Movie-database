@@ -9,25 +9,73 @@ int main(){
     GenreDLL * MovieDataBase = new GenreDLL();
     while(option !=8){
         printMenu();
-    cout<< "Enter Option: ";
+    cout<< "\nEnter Option: ";
     cin>> option;
     switch (option)
     {
     case 1: {
-        string GenreName = "N/A";
-        cout<< "Input Genre Title (No Spaces): "
+        string GenreName;
+        cout<< "\nInput Genre Title (No Spaces): "
         ;
         cin >> GenreName;
-        cout << "Genre Inputed: " << GenreName << endl;
+        cout << "\nGenre Inputed: " << GenreName << endl;
 
-        MovieSLL * GenreMovies = new MovieSLL(GenreName);
-        MovieDataBase->sortInsert(GenreName, GenreMovies);
+        MovieSLL * GenreMovies = new MovieSLL(GenreName); //creating the movie list for the genre
+        MovieDataBase->sortInsert(GenreName, GenreMovies); // adding the genre in the GenreDLL
 
-        cout<< "Genre Successfully Added"<< endl << endl;
+        cout<< "\nGenre Successfully Added"<< endl << endl;
 
         break;
     }
-    case 2: {}
+    case 2: {
+       
+        cout<< "\nAvailable Genres: "<< endl;
+        MovieDataBase->printList();
+
+        string SelectedGenre;
+    
+        cout <<"\nEnter the Genre Name to add this Movie to: "<< endl;
+        cin >> SelectedGenre;
+
+        GenreNode *Genre_Input = MovieDataBase->findGenre(SelectedGenre);// looking for the genre inputed in our GenreDLL
+        
+        if(Genre_Input != nullptr){
+             string Title, Director, PublishDate, Synopsis;
+             
+             cout<< "\nEnter Movie Title:";
+             cin >> Title;
+
+               cout<< "\nEnter Movie Director:";
+             cin >> Director;
+
+               cout<< "\nEnter Movie Publish Date:";
+             cin >> PublishDate;
+
+               cout<< "\nEnter Movie Synospsis";
+             cin >> Synopsis;
+
+             Genre_Input->getMovList()->sortInsert(Title, Director, PublishDate ,Synopsis);
+
+             cout<< "\nMovie Succesfully Added" 
+             <<"\nGenre of Movie: "
+             << Genre_Input->getGenre() 
+             <<"\nMovie Title: "
+             <<Title
+             <<"\nDirector of Moie: "
+             << Director
+             <<"\nPublish Date of Movie: "
+             << PublishDate
+             <<"\nSynopsis of Movie: "
+             << Synopsis<< endl << endl;
+
+
+            
+
+
+        }
+        break;
+    }
+
         
     
     default:

@@ -109,6 +109,7 @@ class GenreDLL{
             }
 
         }
+        cout<< "Please Add a Genre"<< endl;
         return;
 
     }
@@ -139,6 +140,7 @@ GenreNode* findGenre(string gName) {
         }
         ptr = ptr->getNext();
     }
+    cout<< "Genre Not Found" << endl;
     return nullptr;
 }
 
