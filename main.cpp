@@ -72,9 +72,16 @@ int main(){
     }
     case 3:{}
     case 4:{
-        cout << "Listing all Genres";
-        if()
-        MovieDataBase->printList()
+        
+        if(MovieDataBase->isEmpty() != true){
+        cout << "\nListing all Genres:"<< endl;
+        MovieDataBase->printList();
+        cout<< endl;
+        break;
+        }
+
+            cout << "\nNo Genres have been Added"<< endl<< endl;
+            break;
     }
 
         

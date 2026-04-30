@@ -107,6 +107,7 @@ class GenreDLL{
             cout<< ptr->getGenre() << endl;
             ptr = ptr->getNext();
             }
+            return;
 
         }
         cout<< "Please Add a Genre"<< endl;
