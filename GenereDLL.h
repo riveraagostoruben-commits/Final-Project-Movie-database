@@ -129,6 +129,17 @@ class GenreDLL{
 
 
     }
+    
+}
+GenreNode* findGenre(string gName) {
+    GenreNode* ptr = head;
+    while (ptr != nullptr) {
+        if (ptr->getGenre() == gName) {
+            return ptr;
+        }
+        ptr = ptr->getNext();
+    }
+    return nullptr;
 }
 
 

@@ -6,7 +6,7 @@ void printMenu();
 int main(){ 
 
     int option = 0;
-    GenreDLL * MoiveDataBase = new GenreDLL();
+    GenreDLL * MovieDataBase = new GenreDLL();
     while(option !=8){
         printMenu();
     cout<< "Enter Option: ";
@@ -14,11 +14,20 @@ int main(){
     switch (option)
     {
     case 1: {
+        string GenreName = "N/A";
+        cout<< "Input Genre Title (No Spaces): "
+        ;
+        cin >> GenreName;
+        cout << "Genre Inputed: " << GenreName << endl;
 
+        MovieSLL * GenreMovies = new MovieSLL(GenreName);
+        MovieDataBase->sortInsert(GenreName, GenreMovies);
 
+        cout<< "Genre Successfully Added"<< endl << endl;
 
         break;
     }
+    case 2: {}
         
     
     default:
