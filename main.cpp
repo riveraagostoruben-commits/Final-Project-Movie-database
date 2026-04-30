@@ -58,7 +58,7 @@ int main(){
 
              cout<< "\nMovie Succesfully Added" 
              <<"\nGenre of Movie: "
-             << Genre_Input->getGenre() 
+             <<Genre_Input->getGenre() 
              <<"\nMovie Title: "
              <<Title
              <<"\nDirector of Moie: "
@@ -70,7 +70,9 @@ int main(){
             }
         break;
     }
-    case 3:{}
+    case 3:{
+
+    }
     case 4:{
         
         if(MovieDataBase->isEmpty() != true){
@@ -83,6 +85,66 @@ int main(){
             cout << "\nNo Genres have been Added"<< endl<< endl;
             break;
     }
+    case 6:{ // list all movies for selected genre
+        string SelectedGenre;
+        cout<< "\nAvailable Genres: "<< endl;
+        MovieDataBase->printList();
+    
+        cout<< "\nPlease Insert The Genre: ";
+        cin >> SelectedGenre;
+
+        GenreNode *GenreInput = MovieDataBase->findGenre(SelectedGenre);
+        if(GenreInput == nullptr){
+            cout<< "\nGenre Not Found" << endl<< endl;
+            break;
+        }
+        else{
+            cout<< "\nGenre: |"<< endl <<SelectedGenre << "|" << endl;
+            GenreInput->getMovList()->printList();
+            cout<< endl;    
+        }   
+    }
+    case 7:{
+        string SelectedGenre;
+        cout<< "\nAvailable Genres: "<< endl;
+        MovieDataBase->printList();
+    
+        cout<< "\nPlease Insert The Genre of the Movie: ";
+        cin >> SelectedGenre;
+         GenreNode *GenreInput = MovieDataBase->findGenre(SelectedGenre);
+        if(GenreInput == nullptr){
+            cout<< "\nGenre Not Found" << endl<< endl;
+            break;
+        }
+        else{
+            string MovSearch;
+            cout<< "\nGenre: "<< endl << "|" <<SelectedGenre << "|" << endl;
+            GenreInput->getMovList()->printList();
+            cout<<endl;
+            cout<< "\nPlease Insert Movie Name: ";
+            cin>> MovSearch;
+
+           Movie* MovInputed = GenreInput->getMovList()->findMovieByTitle(MovSearch);
+           if(MovInputed != nullptr){
+            cout << "\nMovie Found" << endl;
+            cout<< "\nMovie Info:"<<endl;
+            cout<< "\nTitle: " << MovInputed->getTitle()<< endl;
+            cout<< "Director: " << MovInputed->getDirector()<< endl;
+            cout<< "Pubish Date: " << MovInputed->getPublish_Date()<< endl;
+            cout<< "Synopsis: " << MovInputed->getSynopsis()<< endl<< endl;
+            break;
+           }
+           else{
+            cout<<"\nMovie Not Found"<<endl<< endl;
+            break;
+           }
+
+           
+        }   
+        
+
+    }
+    
 
         
     
