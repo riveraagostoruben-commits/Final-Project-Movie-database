@@ -144,6 +144,9 @@ int main(){
         
 
     }
+    case 8: 
+    cout<< "\nHave a Good Day!"<< endl;
+    break;
     
 
         
