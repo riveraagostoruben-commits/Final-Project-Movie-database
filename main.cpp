@@ -4,50 +4,27 @@
 using namespace std;
 void printMenu();
 int main(){ 
-    int option;
-    printMenu();
+
+    int option = 0;
+    GenreDLL * MoiveDataBase = new GenreDLL();
+    while(option !=8){
+        printMenu();
     cout<< "Enter Option: ";
     cin>> option;
-    GenreDLL *
-    while(option != 8){
+    switch (option)
+    {
+    case 1: {
 
-        switch (option)
-        {
-        case 1:
-            string GenreName;
-            cout << "Input Genre Title"<< endl;
-            cin >> GenreName;
 
-             MovieSLL *newMovieSLL = new MovieSLL(GenreName);
-             
 
-            break;
-        case 2:
-            /* code */
-            break;
-        case 3:
-            /* code */
-            break;
-        case 4:
-            /* code */
-            break;
-        case 5:
-            /* code */
-            break;
-        case 6:
-            /* code */
-            break;
-        case 7:
-            /* code */
-            break;
-        
-        default:
-            cout<< "Have a Good Day!!"; 
-            break;
-        }
-
+        break;
     }
-
+        
+    
+    default:
+        break;
+    }
+    }
     
 
     
