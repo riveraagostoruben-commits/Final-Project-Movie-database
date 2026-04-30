@@ -65,17 +65,41 @@ class GenreDLL{
 
     }
 
-    void sortInsert(string g1, MovieSLL *ml1){
-        if(head == nullptr){
-            head = tail = new GenreNode(g1,m1,nullptr,nullptr);
-        }
-        else{
-            
-        }
+    void sortInsert(string g1, MovieSLL *m1) {
+    GenreNode* newNode = new GenreNode(g1, m1, nullptr, nullptr);
 
-
+    if (head == nullptr) {
+        head = tail = newNode;
+        return;
     }
 
+    if (g1 < head->getGenre()) {
+        newNode->setNext(head);
+        head->setPrev(newNode);
+        head = newNode;
+        return;
+    }
+
+    GenreNode* ptr = head;
+    while (ptr->getNext() != nullptr && g1 > ptr->getNext()->getGenre()) {
+        ptr = ptr->getNext();
+    }
+
+    if (ptr->getNext() == nullptr) {
+        newNode->setPrev(ptr);
+        ptr->setNext(newNode);
+        tail = newNode;
+    }
+    else {
+        GenreNode* after = ptr->getNext();
+
+        newNode->setNext(after);
+        newNode->setPrev(ptr);
+
+        after->setPrev(newNode);
+        ptr->setNext(newNode);
+    }
+}
     void printList(){
         if(head != nullptr){
             GenreNode *ptr = head;

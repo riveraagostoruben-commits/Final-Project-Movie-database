@@ -98,37 +98,29 @@ class MovieSLL
         delete ptr;
         }
     }
-    void sortInsert(Movie *m1){
-        if(m1 == nullptr)
-        return; //safety check
+    void sortInsert(string t, string d, string date, string s) {
+    Movie* newNode = new Movie(t, d, date, s);
 
-        if(head == nullptr || m1->getTitle() < head->getTitle()){
-            if(head == nullptr){
-                head = tail = m1;
-            }
-            else{
-                m1->setNext(head);
-                head = m1;
-            }
-            return;
+    if (head == nullptr || t < head->getTitle()) {
+        newNode->setNext(head);
+        if (head == nullptr) {
+            tail = newNode;
         }
-        
-
-        Movie * ptr = head;
-        while( ptr->getNext() != nullptr && m1->getTitle() > ptr->getNext()->getTitle() ){
-            ptr = ptr->getNext();
-
-
-        }
-        if(ptr->getNext() == nullptr){
-            ptr->setNext(m1);
-            tail = m1;
-            return;
-        }
-        m1->setNext(ptr->getNext());
-        ptr->setNext(m1);
-
+        head = newNode;
+        return;
     }
+    Movie* ptr = head;
+    while (ptr->getNext() != nullptr && t > ptr->getNext()->getTitle()) {
+        ptr = ptr->getNext();
+    }
+    newNode->setNext(ptr->getNext());
+    ptr->setNext(newNode);
+    
+    if (newNode->getNext() == nullptr) {
+        tail = newNode;
+    }
+}
+
     string modifyMovie(string ti1, string newd1, string newdt1, string newsy1){
         
         Movie *ptr = findMovieByTitle(ti1);
