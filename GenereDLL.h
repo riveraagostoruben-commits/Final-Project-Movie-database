@@ -113,6 +113,24 @@ class GenreDLL{
 
     }
 
+    void listallMovforGenre(string g1){
+        if(head!= nullptr){
+            GenreNode *ptr = head;
+            while(ptr!= nullptr){
+                if(g1 == ptr->getGenre()){
+                    ptr->getMovList()->printList();
+                    return;
+                }
+                ptr = ptr->getNext();
+
+            }
+            cout<< "Genre not found";
+            return;
+
+
+    }
+}
+
 
 
 

@@ -179,9 +179,22 @@ class MovieSLL
             
             
         }
+    }
+        void printList(){
+        if(head != nullptr){
+            Movie *ptr = head;
+            while(ptr!= nullptr){
+            cout<< ptr->getTitle() << endl;
+            ptr = ptr->getNext();
+            }
 
+        }
+        return;
 
     }
+
+
+    
 
 
 
