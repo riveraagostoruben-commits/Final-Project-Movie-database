@@ -19,6 +19,11 @@ class GenreNode
 
 
     public:
+    GenreNode(string g1, MovieSLL *m1, GenreNode *prv, GenreNode *nxt): genre(g1),MovList(m1),prev(prv), next(nxt){}
+    ~GenreNode(){
+       delete MovList;
+    }
+
     
 
     void setGenre(string g1){

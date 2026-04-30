@@ -15,7 +15,7 @@ class MovieSLL
 
 
     public:
-    MovieSLL(string genre = "N/A", Movie *head1 = nullptr, Movie *tail1 = nullptr): head(head1),tail(tail1){}
+    MovieSLL(string gen1 = "N/A", Movie *head1 = nullptr, Movie *tail1 = nullptr): genre(gen1),head(head1),tail(tail1){}
     ~MovieSLL(){
         
         while(head != nullptr){
@@ -61,7 +61,7 @@ class MovieSLL
 
         }
         if(head == nullptr){
-            tail == nullptr;
+            tail = nullptr;
 
         }
 
@@ -155,6 +155,7 @@ class MovieSLL
 
 
         }
+        return nullptr;
     }
     string deleteMovie(string ti1){
         if( head == nullptr)
