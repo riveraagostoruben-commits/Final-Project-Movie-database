@@ -10,12 +10,12 @@ private:
     string Director;
     string Publish_Date;
     string Synopsis;
-    Movie *next;
-    BSTree *cast_crew;
+    Movie* next;
+    BSTree cast_crew;
   
 
 public:
-Movie(string t1, string d1, string dt1, string sy1, Movie *nxt = nullptr, BSTree *c_c= nullptr): Title(t1),Director(d1),Publish_Date(dt1),Synopsis(sy1),next(nxt), cast_crew(c_c){}
+Movie(string t1, string d1, string dt1, string sy1, Movie *nxt = nullptr): Title(t1),Director(d1),Publish_Date(dt1),Synopsis(sy1),next(nxt){}
 void setTitle(string t1){
         Title = t1;
     }
@@ -53,6 +53,12 @@ void setNext(Movie *nxt){
 
 Movie *getNext(){
     return next;
+}
+void setCastCrew(BSTree *c_c){
+    cast_crew = c_c;
+}
+BSTree *getCastCrew(){
+    return cast_crew;
 }
 
 
