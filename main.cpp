@@ -103,11 +103,23 @@ int main(){
             cout<< "\nAre you sure you want to Modify the Movie: (Y/N)";
             cin>> choice;
             if(choice != "Y"){
-                cout<< "Returning to Start of Program...";
+                cout<< "\nReturning to Start of Program..."<<endl << endl;
                 break;
             }
             else{
-                MovInputed->
+                string d, p, s;
+                cout << "New Director: ";
+                cin >> d;
+                cout << "New Date: "; 
+                cin >> p;
+                cout << "New Synopsis: "; 
+                 cin >> s;
+
+                MovInputed->setDirector(d);
+                MovInputed->setPublish_Date(p);
+                MovInputed->setSynopsis(s);
+    
+                cout << "\nMovie Modified" << endl<< endl;
             }
 
             break;
