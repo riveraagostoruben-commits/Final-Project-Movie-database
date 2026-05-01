@@ -156,6 +156,9 @@ class MovieSLL
             Movie * ptr = head;
             if(ptr->getTitle() == ti1){
                 head = head->getNext();
+                if(head == nullptr){
+                    tail = nullptr;
+                }
                 delete ptr;
                 return " Successfully Deleted";
             }

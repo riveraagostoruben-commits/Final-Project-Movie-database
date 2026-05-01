@@ -85,6 +85,56 @@ int main(){
             cout << "\nNo Genres have been Added"<< endl<< endl;
             break;
     }
+    case 5:{
+         cout<< "\nAvailable Genres: "<< endl;
+        MovieDataBase->printList();
+
+        string SelectedGenre;
+    
+        cout <<"\nEnter the Genre of the Movie You want to delete: "<< endl;
+        cin >> SelectedGenre;
+
+        GenreNode *GenreInput = MovieDataBase->findGenre(SelectedGenre);// looking for the genre inputed in our GenreDLL
+        if(GenreInput == nullptr){
+            cout<< "\nGenre Not Found" << endl<< endl;
+            break;
+        }
+        else{
+            string MovSearch;
+            string MovCheck;
+            cout<< "\nGenre: "<< endl << "|" <<SelectedGenre << "|" << endl;
+            GenreInput->getMovList()->printList();
+            cout<<endl;
+            cout<< "\nPlease Insert Movie Name: ";
+            cin>> MovSearch;
+
+            Movie *Moviedel = GenreInput->getMovList()->findMovieByTitle(MovSearch);
+
+            if(Moviedel !=nullptr){
+                cout<< "\nMovie |" << MovSearch<< "|\tFound"<< endl;
+                cout<< "Please enter Movie Name again to delete: ";
+                cin>> MovCheck;
+
+                if(MovSearch == MovCheck){
+                    delete Moviedel;
+                    cout <<"\nMovie Successfully Deleted"<< endl << endl;
+                    break;
+                }
+                else{
+                    cout<< "\nInvalid Input"<<endl;
+                    break;
+                }
+
+            }
+            else{
+                cout<< "\nMovie Not Found"<< endl;;
+                break;
+            }
+
+            
+    
+    }
+}
     case 6:{ // list all movies for selected genre
         string SelectedGenre;
         cout<< "\nAvailable Genres: "<< endl;
