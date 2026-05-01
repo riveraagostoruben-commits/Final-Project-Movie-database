@@ -8,7 +8,7 @@ This system was designed to manage a "Netflix-style" database where genres are s
 ### Key Data Structures:
 - **Genre List (DLL):** Allows bidirectional traversal of movie categories.
 - *Movie List (SLL):** Each genre contains a unique Singly Linked List of movies.
-- **Binary Search Tree (BST):** (Architecture requirement) Designed for managing Cast & Crew lists for optimized searching.
+- **Binary Search Tree (BST):** Designed for managing Cast & Crew lists for optimized searching.
 
 ## 🛠️ Features
 - **Categorized Storage:** Add genres and movies into sorted positions using `sortInsert` logic.
