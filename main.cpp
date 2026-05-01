@@ -172,13 +172,13 @@ int main(){
                 break;
             }
             
-            cout<< "\nMovie |" << MovSearch<< "|\tFound"<< endl;
+            cout<< "\nMovie |" << MovSearch<< "| Found"<< endl;
             cout<< "Please enter Movie Name again to delete: ";
             cin>> MovCheck;
 
                 if(MovSearch == MovCheck){
                     GenreInput->getMovList()->deleteMovie(MovSearch);
-                    cout << "\n" << MovCheck << endl << endl;
+                    cout << "\n" << "Movie Successfully deleted" << endl << endl;
                     break;
                 }
                 else{
@@ -206,9 +206,10 @@ int main(){
             break;
         }
         else{
-            cout<< "\nGenre: |"<< endl <<SelectedGenre << "|" << endl;
+            cout<< "\nGenre: "<<endl<< "|"<<SelectedGenre << "|" << endl;
             GenreInput->getMovList()->printList();
-            cout<< endl;    
+            cout<< endl; 
+            break;   
         }   
     }
     case 7:{
@@ -234,7 +235,7 @@ int main(){
            Movie* MovInputed = GenreInput->getMovList()->findMovieByTitle(MovSearch);
            if(MovInputed != nullptr){
             cout << "\nMovie Found" << endl;
-            cout<< "\nMovie Info:"<<endl;
+            cout<< "\nMovie Info:";
             cout<< "\nTitle: " << MovInputed->getTitle()<< endl;
             cout<< "Director: " << MovInputed->getDirector()<< endl;
             cout<< "Pubish Date: " << MovInputed->getPublish_Date()<< endl;
