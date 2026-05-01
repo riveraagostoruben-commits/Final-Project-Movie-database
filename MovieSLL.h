@@ -98,8 +98,8 @@ class MovieSLL
         delete ptr;
         }
     }
-    void sortInsert(string t, string d, string date, string s) {
-    Movie* newNode = new Movie(t, d, date, s);
+    void sortInsert(string t, string d, string date, string s, BSTree* c_c = nullptr) {
+    Movie* newNode = new Movie(t, d, date,s, nullptr, c_c);
 
     if (head == nullptr || t < head->getTitle()) {
         newNode->setNext(head);

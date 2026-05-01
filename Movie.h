@@ -2,70 +2,6 @@
 #include <string>
 using namespace std;
 
-class Movie
-
-{
-private:
-    string Title;
-    string Director;
-    string Publish_Date;
-    string Synopsis;
-    Movie* next;
-    BSTree cast_crew;
-  
-
-public:
-Movie(string t1, string d1, string dt1, string sy1, Movie *nxt = nullptr): Title(t1),Director(d1),Publish_Date(dt1),Synopsis(sy1),next(nxt){}
-void setTitle(string t1){
-        Title = t1;
-    }
-
-string getTitle(){
-        return Title;
-    }
-
-void setDirector(string d1){
-        Director = d1;
-    }
-
-string getDirector(){
-        return Director;
-    }
-
-void setPublish_Date(string dt1){
-        Publish_Date = dt1; 
-    }
-
-string getPublish_Date(){
-    return Publish_Date;
-}
-
-void setSynopsis(string sy1){
-    Synopsis = sy1;
-}
-
-string getSynopsis(){
-    return Synopsis;
-}
-void setNext(Movie *nxt){
-    next = nxt;
-}
-
-Movie *getNext(){
-    return next;
-}
-void setCastCrew(BSTree *c_c){
-    cast_crew = c_c;
-}
-BSTree *getCastCrew(){
-    return cast_crew;
-}
-
-
-
-
-};
-
 class BSTNode {
     
     private:
@@ -74,7 +10,7 @@ class BSTNode {
     string name;
 
     public:
-    BSTNode(BSTNode *l= nullptr, string nam, BSTNode*r = nullptr):left(l),name(nam), right(r){}
+    BSTNode(string nam1,BSTNode *l= nullptr, BSTNode*r = nullptr):name(nam1),left(l), right(r){}
 
     void setName(string n){
         name = n;
@@ -123,7 +59,7 @@ class BSTree{
 
     void Insert(string name){
         if(root ==nullptr) // if tree empty
-        root = new BSTNode(nullptr,name,nullptr); // insert new root
+        root = new BSTNode(name,nullptr,nullptr); // insert new root
 
         else{
             BSTNode * ptr = root; // pointer to the root
@@ -136,9 +72,9 @@ class BSTree{
                 ptr = ptr->getRight(); //if name is greater than the root go right
             }
             if(name < sRoot->getName()) //insert at the left of sRoot
-            sRoot->setLeft(new BSTNode(nullptr,name,nullptr));
+            sRoot->setLeft(new BSTNode(name, nullptr,nullptr));
             else
-            sRoot->setRight(new BSTNode(nullptr,name,nullptr)); // insert at the right
+            sRoot->setRight(new BSTNode(name,nullptr,nullptr)); // insert at the right
         }
     
     }
@@ -146,6 +82,70 @@ class BSTree{
         visitInOrder(root);
     }
    
+
+
+};
+
+class Movie
+
+{
+private:
+    string Title;
+    string Director;
+    string Publish_Date;
+    string Synopsis;
+    Movie* next;
+    BSTree *cast_crew;
+  
+
+public:
+Movie(string t1, string d1, string dt1, string sy1, Movie *nxt = nullptr, BSTree *c_c = nullptr): Title(t1),Director(d1),Publish_Date(dt1),Synopsis(sy1),next(nxt),cast_crew(c_c){}
+void setTitle(string t1){
+        Title = t1;
+    }
+
+string getTitle(){
+        return Title;
+    }
+
+void setDirector(string d1){
+        Director = d1;
+    }
+
+string getDirector(){
+        return Director;
+    }
+
+void setPublish_Date(string dt1){
+        Publish_Date = dt1; 
+    }
+
+string getPublish_Date(){
+    return Publish_Date;
+}
+
+void setSynopsis(string sy1){
+    Synopsis = sy1;
+}
+
+string getSynopsis(){
+    return Synopsis;
+}
+void setNext(Movie *nxt){
+    next = nxt;
+}
+
+Movie *getNext(){
+    return next;
+}
+void setCastCrew(BSTree *c_c){
+    cast_crew = c_c;
+}
+BSTree *getCastCrew(){
+    return cast_crew;
+}
+
+
 
 
 };

@@ -28,49 +28,47 @@ int main(){
         break;
     }
     case 2: {
-       
-        cout<< "\nAvailable Genres: "<< endl;
-        MovieDataBase->printList();
+                cout << "\nAvailable Genres: " << endl;
+                MovieDataBase->printList();
 
-        string SelectedGenre;
-    
-        cout <<"\nEnter the Genre Name to add this Movie to: "<< endl;
-        cin >> SelectedGenre;
+                string SelectedGenre;
+                cout << "\nEnter the Genre Name to add this Movie to: ";
+                cin >> SelectedGenre;
 
-        GenreNode *Genre_Input = MovieDataBase->findGenre(SelectedGenre);// looking for the genre inputed in our GenreDLL
-        
-        if(Genre_Input != nullptr){
-             string Title, Director, PublishDate, Synopsis;
-             
-             cout<< "\nEnter Movie Title: ";
-             cin >> Title;
+                GenreNode* Genre_Input = MovieDataBase->findGenre(SelectedGenre);
 
-               cout<< "\nEnter Movie Director:";
-             cin >> Director;
+                if (Genre_Input != nullptr) {
+                    string Title, Director, PublishDate, Synopsis;
+                    cout << "\nEnter Movie Title: ";
+                    cin >> Title;
+                    cout << "\nEnter Movie Director: ";
+                    cin >> Director;
+                    cout << "\nEnter Movie Publish Date: ";
+                    cin >> PublishDate;
+                    cout << "\nEnter Movie Synopsis: ";
+                    cin >> Synopsis;
 
-               cout<< "\nEnter Movie Publish Date:";
-             cin >> PublishDate;
+                    
+                    BSTree* MovieCast = new BSTree();
+                    int count;
+                    cout << "Enter how many cast/crew members: "; // fix print out
+                    cin >> count;
 
-               cout<< "\nEnter Movie Synospsis:";
-             cin >> Synopsis;
+                    for (int i = 0; i < count; i++) {
+                        string name;
+                        cout << "Enter name " << i + 1 << " (No Spaces): "; //fix print out
+                        cin >> name;
+                        MovieCast->Insert(name);
+                    }
 
-             Genre_Input->getMovList()->sortInsert(Title, Director, PublishDate ,Synopsis);
-
-             cout<< "\nMovie Succesfully Added" 
-             <<"\nGenre of Movie: "
-             <<Genre_Input->getGenre() 
-             <<"\nMovie Title: "
-             <<Title
-             <<"\nDirector of Moie: "
-             << Director
-             <<"\nPublish Date of Movie: "
-             << PublishDate
-             <<"\nSynopsis of Movie: "
-             << Synopsis<< endl << endl;
-            }
-        break;
-    }
-    case 3:{
+                    Genre_Input->getMovList()->sortInsert(Title, Director, PublishDate, Synopsis, MovieCast);
+                    cout << "\nMovie Successfully Added!" << endl << endl;
+                } else {
+                    cout << "\nGenre not found!" << endl;
+                }
+                break;
+            } 
+    case 3:{// have to add printout of cast and crew
         string SelectedGenre;
         cout<< "\nAvailable Genres: "<< endl;
         MovieDataBase->printList();
@@ -239,7 +237,10 @@ int main(){
             cout<< "\nTitle: " << MovInputed->getTitle()<< endl;
             cout<< "Director: " << MovInputed->getDirector()<< endl;
             cout<< "Pubish Date: " << MovInputed->getPublish_Date()<< endl;
-            cout<< "Synopsis: " << MovInputed->getSynopsis()<< endl<< endl;
+            cout<< "Synopsis: " << MovInputed->getSynopsis()<< endl;
+
+            cout<< "Cast & Crew";
+            MovInputed->getCastCrew()->PrintInOrder(); // Fix print out
             break;
            }
            else{
