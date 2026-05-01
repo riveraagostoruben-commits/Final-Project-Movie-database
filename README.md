@@ -6,14 +6,14 @@ A C++ console application that implements a hierarchical database using **Doubly
 This system was designed to manage a "Netflix-style" database where genres are stored in an alphabetically sorted Doubly Linked List. Each genre node acts as a header for its own Singly Linked List of movies, which are also maintained in alphabetical order.
 
 ### Key Data Structures:
-- **Genre List (DLL):** Allows bidirectional traversal of movie categories[cite: 34, 35].
-- *Movie List (SLL):** Each genre contains a unique Singly Linked List of movies[cite: 36].
+- **Genre List (DLL):** Allows bidirectional traversal of movie categories.
+- *Movie List (SLL):** Each genre contains a unique Singly Linked List of movies.
 - **Binary Search Tree (BST):** (Architecture requirement) Designed for managing Cast & Crew lists for optimized searching.
 
 ## 🛠️ Features
-- **Categorized Storage:** Add genres and movies into sorted positions using `sortInsert` logic[cite: 17, 21].
-- **CRUD Operations:** Create, Read, Update (Modify), and Delete functionality for both movies and genres[cite: 10, 12, 14].
-- **Formatted Display:** List all genres or view specific movies within a selected genre[cite: 11, 13].
+- **Categorized Storage:** Add genres and movies into sorted positions using `sortInsert` logic.
+- **CRUD Operations:** Create, Read, Update (Modify), and Delete functionality for both movies and genres.
+- **Formatted Display:** List all genres or view specific movies within a selected genre.
 - **Memory Management:** Custom destructors to prevent memory leaks in nested linked list structures.
 
 ## 📂 File Structure
