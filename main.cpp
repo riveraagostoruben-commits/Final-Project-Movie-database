@@ -42,7 +42,7 @@ int main(){
         if(Genre_Input != nullptr){
              string Title, Director, PublishDate, Synopsis;
              
-             cout<< "\nEnter Movie Title:";
+             cout<< "\nEnter Movie Title: ";
              cin >> Title;
 
                cout<< "\nEnter Movie Director:";
@@ -51,7 +51,7 @@ int main(){
                cout<< "\nEnter Movie Publish Date:";
              cin >> PublishDate;
 
-               cout<< "\nEnter Movie Synospsis";
+               cout<< "\nEnter Movie Synospsis:";
              cin >> Synopsis;
 
              Genre_Input->getMovList()->sortInsert(Title, Director, PublishDate ,Synopsis);
@@ -167,15 +167,18 @@ int main(){
             cin>> MovSearch;
 
             Movie *Moviedel = GenreInput->getMovList()->findMovieByTitle(MovSearch);
-
-            if(Moviedel !=nullptr){
-                cout<< "\nMovie |" << MovSearch<< "|\tFound"<< endl;
-                cout<< "Please enter Movie Name again to delete: ";
-                cin>> MovCheck;
+            if(Moviedel == nullptr){
+                cout << "\nMovie Not Found" << endl;
+                break;
+            }
+            
+            cout<< "\nMovie |" << MovSearch<< "|\tFound"<< endl;
+            cout<< "Please enter Movie Name again to delete: ";
+            cin>> MovCheck;
 
                 if(MovSearch == MovCheck){
-                    delete Moviedel;
-                    cout <<"\nMovie Successfully Deleted"<< endl << endl;
+                    GenreInput->getMovList()->deleteMovie(MovSearch);
+                    cout << "\n" << MovCheck << endl << endl;
                     break;
                 }
                 else{
@@ -183,11 +186,7 @@ int main(){
                     break;
                 }
 
-            }
-            else{
-                cout<< "\nMovie Not Found"<< endl;;
-                break;
-            }
+            
 
             
     
