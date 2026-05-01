@@ -121,19 +121,6 @@ class MovieSLL
     }
 }
 
-    string modifyMovie(string ti1, string newd1, string newdt1, string newsy1){
-        
-        Movie *ptr = findMovieByTitle(ti1);
-        if(ptr!=nullptr){
-        ptr->setDirector(newd1);
-        ptr->setPublish_Date(newdt1);
-        ptr->setSynopsis(newsy1);
-        return "Movie Successfully Modified";
-        }
-        return "Movie Not Found";
-    }
-
-
     Movie *findMovieByTitle( string ti1){
         if(head!= nullptr){
             Movie *ptr = head;

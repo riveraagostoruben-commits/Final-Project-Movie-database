@@ -71,8 +71,54 @@ int main(){
         break;
     }
     case 3:{
+        string SelectedGenre;
+        cout<< "\nAvailable Genres: "<< endl;
+        MovieDataBase->printList();
+    
+        cout<< "\nPlease Insert The Genre of the Movie: ";
+        cin >> SelectedGenre;
+         GenreNode *GenreInput = MovieDataBase->findGenre(SelectedGenre);
+        if(GenreInput == nullptr){
+            cout<< "\nGenre Not Found" << endl<< endl;
+            break;
+        }
+        else{
+            string MovSearch;
+            cout<< "\nGenre: "<< endl << "|" <<SelectedGenre << "|" << endl;
+            GenreInput->getMovList()->printList();
+            cout<<endl;
+            cout<< "\nPlease Insert Movie Name: ";
+            cin>> MovSearch;
+
+           Movie* MovInputed = GenreInput->getMovList()->findMovieByTitle(MovSearch);
+           if(MovInputed != nullptr){
+            string choice;
+            cout << "\nMovie Found" << endl;
+            cout<< "\nMovie Info:"<<endl;
+            cout<< "\nTitle: " << MovInputed->getTitle()<< endl;
+            cout<< "Director: " << MovInputed->getDirector()<< endl;
+            cout<< "Pubish Date: " << MovInputed->getPublish_Date()<< endl;
+            cout<< "Synopsis: " << MovInputed->getSynopsis()<< endl<< endl;
+
+            cout<< "\nAre you sure you want to Modify the Movie: (Y/N)";
+            cin>> choice;
+            if(choice != "Y"){
+                cout<< "Returning to Start of Program...";
+                break;
+            }
+            else{
+                MovInputed->
+            }
+
+            break;
+           }
+           else{
+            cout<<"\nMovie Not Found"<<endl<< endl;
+            break;
+           }
 
     }
+}
     case 4:{
         
         if(MovieDataBase->isEmpty() != true){
