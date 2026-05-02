@@ -119,7 +119,7 @@ class MovieSLL
     if (newNode->getNext() == nullptr) {
         tail = newNode;
     }
-}
+    }
 
     Movie *findMovieByTitle( string ti1){
         if(head!= nullptr){
@@ -139,7 +139,7 @@ class MovieSLL
     string deleteMovie(string ti1){
         if( head == nullptr)
         return "Movie List Empty";
-        if(head!=nullptr){
+       
             Movie * ptr = head;
             if(ptr->getTitle() == ti1){
                 head = head->getNext();
@@ -168,8 +168,10 @@ class MovieSLL
             }
             
             
+        
         }
-    }
+    
+
         void printList(){
         if(head != nullptr){
             Movie *ptr = head;
@@ -181,7 +183,7 @@ class MovieSLL
         }
         return;
 
-    }
+        }
 
 
     

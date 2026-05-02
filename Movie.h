@@ -39,7 +39,7 @@ class BSTree{
     void visitInOrder(BSTNode *node){
         if(node!=nullptr){
             visitInOrder(node->getLeft());
-            cout<< "-"<<node->getName()<< "-";
+            cout<< "-|" <<node->getName()<< "|-";
             visitInOrder(node->getRight());
         }
     }

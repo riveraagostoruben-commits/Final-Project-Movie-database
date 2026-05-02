@@ -47,19 +47,20 @@ int main(){
                     cin >> PublishDate;
                     cout << "\nEnter Movie Synopsis: ";
                     cin >> Synopsis;
+                    cout << "\nEnter Cast/Crew names (type 'done' when finished):" << endl;
+                
 
                     
                     BSTree* MovieCast = new BSTree();
-                    int count;
-                    cout << "Enter how many cast/crew members: "; // fix print out
-                    cin >> count;
-
-                    for (int i = 0; i < count; i++) {
-                        string name;
-                        cout << "Enter name " << i + 1 << " (No Spaces): "; //fix print out
-                        cin >> name;
-                        MovieCast->Insert(name);
-                    }
+                    string name;
+                    while (true) {
+                    cout << " > ";
+                    cin>> name;
+                    if (name == "done") break;
+                    
+                    
+                    MovieCast->Insert(name); 
+                }
 
                     Genre_Input->getMovList()->sortInsert(Title, Director, PublishDate, Synopsis, MovieCast);
                     cout << "\nMovie Successfully Added!" << endl << endl;
@@ -96,7 +97,10 @@ int main(){
             cout<< "\nTitle: " << MovInputed->getTitle()<< endl;
             cout<< "Director: " << MovInputed->getDirector()<< endl;
             cout<< "Pubish Date: " << MovInputed->getPublish_Date()<< endl;
-            cout<< "Synopsis: " << MovInputed->getSynopsis()<< endl<< endl;
+            cout<< "Synopsis: " << MovInputed->getSynopsis()<< endl;
+            cout<< "Cast & Crew: ";
+            MovInputed->getCastCrew()->PrintInOrder();
+            cout<< endl<< endl;
 
             cout<< "\nAre you sure you want to Modify the Movie: (Y/N)";
             cin>> choice;
@@ -105,17 +109,30 @@ int main(){
                 break;
             }
             else{
-                string d, p, s;
+                
+                string d, p, s, name;
                 cout << "New Director: ";
                 cin >> d;
                 cout << "New Date: "; 
                 cin >> p;
                 cout << "New Synopsis: "; 
-                 cin >> s;
-
+                cin >> s;
+                
                 MovInputed->setDirector(d);
                 MovInputed->setPublish_Date(p);
                 MovInputed->setSynopsis(s);
+                cout << "Enter Cast/Crew names (type 'done' when finished):" << endl;
+                delete MovInputed->getCastCrew();
+                MovInputed->setCastCrew(new BSTree());
+
+                while (true) {
+                    cout << " > ";
+                    cin>> name;
+                    if (name == "done") break;
+                    
+                    
+                    MovInputed->getCastCrew()->Insert(name); 
+                }
     
                 cout << "\nMovie Modified" << endl<< endl;
             }
@@ -171,7 +188,7 @@ int main(){
             }
             
             cout<< "\nMovie |" << MovSearch<< "| Found"<< endl;
-            cout<< "Please enter Movie Name again to delete: ";
+            cout<< "\nPlease enter Movie Name again to delete: ";
             cin>> MovCheck;
 
                 if(MovSearch == MovCheck){
@@ -238,9 +255,10 @@ int main(){
             cout<< "Director: " << MovInputed->getDirector()<< endl;
             cout<< "Pubish Date: " << MovInputed->getPublish_Date()<< endl;
             cout<< "Synopsis: " << MovInputed->getSynopsis()<< endl;
-
-            cout<< "Cast & Crew";
-            MovInputed->getCastCrew()->PrintInOrder(); // Fix print out
+            cout<< "Cast & Crew: ";
+            MovInputed->getCastCrew()->PrintInOrder();
+            cout<< endl;
+            
             break;
            }
            else{
